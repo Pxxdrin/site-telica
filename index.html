@@ -1,138 +1,101 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Telica - Inovação Conectada</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Meu Bot Epic</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0f172a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f0f;
       color: #ffffff;
       line-height: 1.6;
     }
-
-    nav {
-      background: #111827;
-      padding: 20px;
+    header {
+      background: linear-gradient(90deg, #6e00ff, #a600ff);
+      padding: 2rem 1rem;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
-
+    header h1 {
+      font-size: 3rem;
+    }
+    nav {
+      margin-top: 1rem;
+    }
     nav a {
-      color: #94a3b8;
+      color: #fff;
       margin: 0 15px;
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
-    }
-
-    header {
-      height: 100vh;
-      background: linear-gradient(145deg, #1e293b, #0f172a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 15px;
-      font-weight: 800;
-    }
-
-    header p {
-      font-size: 1.25rem;
-      color: #cbd5e1;
-    }
-
-    section {
-      padding: 80px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    section h2 {
-      font-size: 2.25rem;
-      margin-bottom: 20px;
-      color: #38bdf8;
-    }
-
-    section p {
-      font-size: 1.1rem;
-      color: #e2e8f0;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 24px;
-      background: #38bdf8;
-      color: #0f172a;
       font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s;
     }
-
-    .btn:hover {
-      background: #0ea5e9;
+    .section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
     }
-
+    .section h2 {
+      color: #a600ff;
+      margin-bottom: 1rem;
+    }
     footer {
-      background: #111827;
-      padding: 20px;
       text-align: center;
+      padding: 2rem 1rem;
+      background: #1a1a1a;
       font-size: 0.9rem;
-      color: #94a3b8;
+    }
+    a {
+      color: #bb86fc;
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#home">Início</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </nav>
-
-  <header id="home">
-    <h1>Telica</h1>
-    <p>Conectando tecnologia e inovação para um futuro mais inteligente.</p>
-    <a href="#contato" class="btn">Fale conosco</a>
+  <header>
+    <h1>Meu Bot Epic</h1>
+    <p>Vincule sua conta Epic Games ao Discord com segurança</p>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#politica">Política de Privacidade</a>
+    </nav>
   </header>
 
-  <section id="sobre">
-    <h2>Sobre a Telica</h2>
-    <p>A Telica nasceu da paixão por tecnologia e inovação. Nosso objetivo é desenvolver soluções acessíveis, inteligentes e impactantes para o dia a dia de todos. Desde automação até conectividade, acreditamos que a simplicidade aliada à inovação é o caminho para o futuro.</p>
+  <section id="sobre" class="section">
+    <h2>Sobre o Bot</h2>
+    <p>Nosso bot permite que você conecte sua conta Epic Games com sua conta no Discord. Após a vinculação, seu nome de exibição da Epic será utilizado como apelido no servidor, garantindo integração e reconhecimento dentro da comunidade.</p>
   </section>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>Tem alguma dúvida, sugestão ou proposta de parceria? Entre em contato com a gente!</p>
-    <p>Email: contato@telica.com.br</p>
-    <p>Instagram: <a href="https://instagram.com" target="_blank" style="color:#38bdf8;">@telicaoficial</a></p>
+  <section id="politica" class="section">
+    <h2>Política de Privacidade</h2>
+    <p><strong>Informações Coletadas</strong><br/>
+    Ao usar nosso bot, coletamos informações necessárias para vincular sua conta da Epic Games com o Discord. Essas informações incluem:</p>
+    <ul>
+      <li>Seu nome de usuário na Epic Games;</li>
+      <li>Seu ID de usuário no Discord;</li>
+      <li>Outras informações associadas à sua conta.</li>
+    </ul>
+
+    <p><strong>Como Usamos suas Informações</strong><br/>
+    As informações coletadas são usadas apenas para permitir o processo de vinculação entre o Discord e sua conta da Epic Games. Nenhuma informação será compartilhada com terceiros.</p>
+
+    <p><strong>Segurança</strong><br/>
+    Procuramos proteger suas informações com medidas de segurança apropriadas. No entanto, nenhuma transmissão de dados pela internet é completamente segura e não podemos garantir a segurança absoluta.</p>
+
+    <p><strong>Alterações nesta Política</strong><br/>
+    Podemos atualizar esta política de privacidade periodicamente. Notificaremos você sobre quaisquer mudanças importantes através deste site.</p>
+
+    <p>Se você tiver dúvidas sobre nossa política de privacidade, entre em contato conosco em <a href="mailto:suporte@meubot.com">suporte@meubot.com</a>.</p>
   </section>
 
   <footer>
-    © 2025 Telica. Todos os direitos reservados.
+    &copy; 2025 Meu Bot Epic. Todos os direitos reservados.
   </footer>
 
 </body>
 </html>
+
