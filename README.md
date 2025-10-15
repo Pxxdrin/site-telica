@@ -1,1 +1,1 @@
-<a href="https://telica.com.br/">Sitek</a>
+<a href="https://telica.com.br/">Site</a>
