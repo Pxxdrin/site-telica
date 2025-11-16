@@ -1,101 +1,107 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Telica Auth</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pedro & Livia ❤️</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    body{
+      margin:0;
+      font-family:'Poppins', Arial;
+      background:linear-gradient(135deg,#6ea1ff,#6e89ff);
+      color:#303030;
+      text-align:center;
+      padding:20px;
     }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0f0f0f;
-      color: #ffffff;
-      line-height: 1.6;
+    h1{
+      font-size:32px;
+      margin-top:30px;
     }
-    header {
-      background: linear-gradient(90deg, #6e00ff, #a600ff);
-      padding: 2rem 1rem;
-      text-align: center;
+    h2{
+      font-weight:500;
+      margin-bottom:20px;
     }
-    header h1 {
-      font-size: 3rem;
+    .counter{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-top:30px;
     }
-    nav {
-      margin-top: 1rem;
+    .box{
+      background:rgba(255,255,255,0.7);
+      padding:18px 22px;
+      border-radius:18px;
+      backdrop-filter:blur(6px);
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+      min-width:110px;
     }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
+    .num{
+      font-size:28px;
+      font-weight:700;
     }
-    .section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: auto;
+    .label{
+      font-size:14px;
+      opacity:0.8;
     }
-    .section h2 {
-      color: #a600ff;
-      margin-bottom: 1rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #1a1a1a;
-      font-size: 0.9rem;
-    }
-    a {
-      color: #bb86fc;
+    footer{
+      margin-top:30px;
+      font-size:14px;
+      opacity:0.7;
     }
   </style>
 </head>
 <body>
+  <h1>Pedro ❤️ Livia</h1>
+  <h2>Tempo juntos desde: <span id="data">25/05/2023</span></h2>
 
-  <header>
-    <h1>Telica Auth</h1>
-    <p>Vincule sua conta Epic Games ao Discord com segurança</p>
-    <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#politica">Política de Privacidade</a>
-    </nav>
-  </header>
+  <div class="counter">
+    <div class="box"><div class="num" id="meses">0</div><div class="label">meses</div></div>
+    <div class="box"><div class="num" id="dias">0</div><div class="label">dias</div></div>
+    <div class="box"><div class="num" id="horas">0</div><div class="label">horas</div></div>
+    <div class="box"><div class="num" id="minutos">0</div><div class="label">minutos</div></div>
+    <div class="box"><div class="num" id="segundos">0</div><div class="label">segundos</div></div>
+  </div>
 
-  <section id="sobre" class="section">
-    <h2>Sobre o Bot</h2>
-    <p>Nosso bot permite que você conecte sua conta Epic Games com sua conta no Discord. Após a vinculação, seu nome de exibição da Epic será utilizado como apelido no servidor, garantindo integração e reconhecimento dentro da comunidade.</p>
-  </section>
+  <footer>Feito com ❤️ por Pedro</footer>
 
-  <section id="politica" class="section">
-    <h2>Política de Privacidade</h2>
-    <p><strong>Informações Coletadas</strong><br/>
-    Ao usar nosso bot, coletamos informações necessárias para vincular sua conta da Epic Games com o Discord. Essas informações incluem:</p>
-    <ul>
-      <li>Seu nome de usuário na Epic Games;</li>
-      <li>Seu ID de usuário no Discord;</li>
-      <li>Outras informações associadas à sua conta.</li>
-    </ul>
+<script>
+  const inicio = new Date(2025,4,25,0,0,0); // 25 maio 2023
 
-    <p><strong>Como Usamos suas Informações</strong><br/>
-    As informações coletadas são usadas apenas para permitir o processo de vinculação entre o Discord e sua conta da Epic Games. Nenhuma informação será compartilhada com terceiros.</p>
+  function atualizar(){
+    const agora = new Date();
 
-    <p><strong>Segurança</strong><br/>
-    Procuramos proteger suas informações com medidas de segurança apropriadas. No entanto, nenhuma transmissão de dados pela internet é completamente segura e não podemos garantir a segurança absoluta.</p>
+    let anos = agora.getFullYear() - inicio.getFullYear();
+    let meses = agora.getMonth() - inicio.getMonth();
+    let dias = agora.getDate() - inicio.getDate();
+    let horas = agora.getHours() - inicio.getHours();
+    let minutos = agora.getMinutes() - inicio.getMinutes();
+    let segundos = agora.getSeconds() - inicio.getSeconds();
 
-    <p><strong>Alterações nesta Política</strong><br/>
-    Podemos atualizar esta política de privacidade periodicamente. Notificaremos você sobre quaisquer mudanças importantes através deste site.</p>
+    if(segundos < 0){ segundos += 60; minutos--; }
+    if(minutos < 0){ minutos += 60; horas--; }
+    if(horas < 0){ horas += 24; dias--; }
 
-    <p>Se você tiver dúvidas sobre nossa política de privacidade, entre em contato conosco em <a href="mailto:pxddiglck@gmail.com">pxddiglck@gmail.com</a>.</p>
-  </section>
+    if(dias < 0){
+      const diasMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+      dias += diasMesAnterior;
+      meses--;
+    }
 
-  <footer>
-    &copy; 2025 Telica Auth. Todos os direitos reservados.
-  </footer>
+    if(meses < 0){ meses += 12; anos--; }
+
+    const totalMeses = anos * 12 + meses;
+
+    document.getElementById('meses').textContent = totalMeses;
+    document.getElementById('dias').textContent = dias;
+    document.getElementById('horas').textContent = horas.toString().padStart(2,'0');
+    document.getElementById('minutos').textContent = minutos.toString().padStart(2,'0');
+    document.getElementById('segundos').textContent = segundos.toString().padStart(2,'0');
+  }
+
+  atualizar();
+  setInterval(atualizar, 1000);
+</script>
 
 </body>
 </html>
-
