@@ -4,123 +4,361 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pedro & Livia ❤️</title>
+  
+  <!-- Importing Romantic Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    body{
-      margin:0;
-      font-family:'Poppins', Arial;
-      background:linear-gradient(135deg,#6ea1ff,#6e89ff);
-      color:#303030;
-      text-align:center;
-      padding:20px;
+    /* --- RESET & BASIC SETUP --- */
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #4a4a4a;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
     }
-    h1{
-      font-size:32px;
-      margin-top:30px;
+
+    /* --- ANIMATED BACKGROUND --- */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    h2{
-      font-weight:500;
-      margin-bottom:20px;
+
+    /* --- FLOATING HEARTS BACKGROUND --- */
+    .heart-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
     }
-    .counter{
-      display:flex;
-      justify-content:center;
-      gap:15px;
-      flex-wrap:wrap;
-      margin-top:30px;
+    .heart {
+      position: absolute;
+      bottom: -100px;
+      background-color: rgba(255, 255, 255, 0.4);
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+      margin: 0 10px;
+      transform: rotate(-45deg);
+      animation: float 6s linear infinite;
     }
-    .box{
-      background:rgba(255,255,255,0.7);
-      padding:18px 22px;
-      border-radius:18px;
-      backdrop-filter:blur(6px);
-      box-shadow:0 4px 12px rgba(0,0,0,0.15);
-      min-width:110px;
+    .heart:before, .heart:after {
+      content: "";
+      position: absolute;
+      background-color: inherit;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
     }
-    .num{
-      font-size:28px;
-      font-weight:700;
+    .heart:before { top: -15px; left: 0; }
+    .heart:after { left: 15px; top: 0; }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(-45deg) scale(0.8); opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(-45deg) scale(1.2); opacity: 0; }
     }
-    .label{
-      font-size:14px;
-      opacity:0.8;
+
+    /* --- GLASS CARD CONTAINER --- */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 40px;
+      max-width: 600px;
+      width: 90%;
+      z-index: 10;
+      transition: all 0.5s ease;
     }
-    footer{
-      margin-top:30px;
-      font-size:14px;
-      opacity:0.7;
+
+    /* --- TYPOGRAPHY --- */
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
+      color: #d6336c;
+      margin: 0 0 10px 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      animation: heartbeat 1.5s infinite;
     }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      15% { transform: scale(1.1); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.1); }
+      60% { transform: scale(1); }
+    }
+
+    h2 {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    /* --- NEW QUOTE STYLE --- */
+    .quote {
+      font-family: 'Dancing Script', cursive;
+      font-size: 22px;
+      color: #885c6e;
+      margin: 10px 0 30px 0;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* --- LOGIN FORM --- */
+    #login {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    input[type="password"] {
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.6);
+      font-size: 16px;
+      outline: none;
+      width: 100%;
+      max-width: 250px;
+      transition: 0.3s;
+    }
+    input[type="password"]:focus {
+      background: #fff;
+      border-color: #d6336c;
+      box-shadow: 0 0 10px rgba(214, 51, 108, 0.3);
+    }
+
+    button {
+      padding: 12px 30px;
+      border-radius: 50px;
+      border: none;
+      background: #d6336c;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(214, 51, 108, 0.4);
+    }
+    button:hover {
+      transform: translateY(-2px);
+      background: #c2185b;
+    }
+
+    /* --- COUNTDOWN TIMER --- */
+    .counter {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .box {
+      background: rgba(255, 255, 255, 0.6);
+      padding: 15px 10px;
+      border-radius: 15px;
+      min-width: 80px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .num {
+      font-size: 26px;
+      font-weight: 800;
+      color: #d6336c;
+      line-height: 1;
+    }
+    .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 5px;
+      color: #666;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #666;
+      opacity: 0.8;
+    }
+
+    /* --- UTILS --- */
+    .hidden { display: none !important; }
+    .fade-in { animation: fadeIn 1s ease-in forwards; }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
   </style>
 </head>
 <body>
 
-  <div id="login">
-  <h2>Digite a senha ❤️</h2>
-  <input type="password" id="senha" placeholder="Senha">
-  <button onclick="verificar()">Entrar</button>
-</div>
+  <!-- Floating Hearts Container -->
+  <div class="heart-bg" id="heartContainer"></div>
 
-<div id="conteudo" style="display:none;">
-  <!-- COLOCA TODO SEU SITE AQUI DENTRO -->
-  
-  <h1>Pedro ❤️ Livia</h1>
-  <h2>Tempo juntos desde: <span id="data">25/05/2023</span></h2>
+  <div class="glass-card">
+    
+    <!-- LOGIN SCREEN -->
+    <div id="login">
+      <h1 style="font-size: 36px;">O segredo do nosso amor ❤️</h1>
+      <p style="font-size: 14px; color: #666;">Digite a senha para ver nossa história</p>
+      <input type="password" id="senha" placeholder="Senha:" autocomplete="off">
+      <button onclick="verificar()">Entrar</button>
+    </div>
 
-  <div class="counter">
-    <div class="box"><div class="num" id="meses">0</div><div class="label">meses</div></div>
-    <div class="box"><div class="num" id="dias">0</div><div class="label">dias</div></div>
-    <div class="box"><div class="num" id="horas">0</div><div class="label">horas</div></div>
-    <div class="box"><div class="num" id="minutos">0</div><div class="label">minutos</div></div>
-    <div class="box"><div class="num" id="segundos">0</div><div class="label">segundos</div></div>
+    <!-- MAIN CONTENT -->
+    <div id="conteudo" class="hidden">
+      <h1>Pedro ❤️ Livia</h1>
+      <h2>Contando os dias desde: <span id="data" style="color:#d6336c; font-weight:bold;">25/05/2025</span></h2>
+      
+      <!-- NOVA FRASE ADICIONADA AQUI -->
+      <p class="quote">"O amor não se conta em anos, mas em momentos inesquecíveis."</p>
+
+      <div class="counter">
+        <div class="box">
+          <div class="num" id="meses">0</div>
+          <div class="label">Meses</div>
+        </div>
+        <div class="box">
+          <div class="num" id="dias">0</div>
+          <div class="label">Dias</div>
+        </div>
+        <div class="box">
+          <div class="num" id="horas">00</div>
+          <div class="label">Horas</div>
+        </div>
+        <div class="box">
+          <div class="num" id="minutos">00</div>
+          <div class="label">Minutos</div>
+        </div>
+        <div class="box">
+          <div class="num" id="segundos">00</div>
+          <div class="label">Segundos</div>
+        </div>
+      </div>
+
+      <footer>Feito com todo amor do mundo por Pedro</footer>
+    </div>
+
   </div>
 
-  <footer>Feito com ❤️ por Pedro</footer>
-
 <script>
-  const inicio = new Date(2025,4,25,0,0,0); // 25 maio 2023
+  // --- CONFIGURATION ---
+  // Mês é indexado de 0 a 11 (Janeiro = 0, Maio = 4)
+  // Data: 25 de Maio de 2025
+  const dataInicio = new Date(2025, 4, 25, 0, 0, 0); 
 
+  // --- FLOATING HEARTS LOGIC ---
+  function createHearts() {
+    const container = document.getElementById('heartContainer');
+    const heartCount = 15; // Number of hearts
+
+    for (let i = 0; i < heartCount; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      
+      // Randomize position and animation duration
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 3 + 4 + "s"; // 4-7s
+      heart.style.opacity = Math.random();
+      heart.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
+      
+      container.appendChild(heart);
+    }
+  }
+  createHearts();
+
+  // --- TIMER LOGIC ---
   function atualizar(){
     const agora = new Date();
+    
+    // Calculate difference in milliseconds
+    const diff = agora - dataInicio;
 
-    let anos = agora.getFullYear() - inicio.getFullYear();
-    let meses = agora.getMonth() - inicio.getMonth();
-    let dias = agora.getDate() - inicio.getDate();
-    let horas = agora.getHours() - inicio.getHours();
-    let minutos = agora.getMinutes() - inicio.getMinutes();
-    let segundos = agora.getSeconds() - inicio.getSeconds();
+    if (diff < 0) return; // Don't show negative numbers
 
-    if(segundos < 0){ segundos += 60; minutos--; }
-    if(minutos < 0){ minutos += 60; horas--; }
-    if(horas < 0){ horas += 24; dias--; }
+    // Calculate units
+    const totalSeconds = Math.floor(diff / 1000);
+    const seconds = totalSeconds % 60;
+    const totalMinutes = Math.floor(totalSeconds / 60);
+    const minutes = totalMinutes % 60;
+    const totalHours = Math.floor(totalMinutes / 60);
+    const hours = totalHours % 24;
+    const totalDays = Math.floor(totalHours / 24);
+    
+    // Calculate Months and Years
+    let years = agora.getFullYear() - dataInicio.getFullYear();
+    let months = agora.getMonth() - dataInicio.getMonth();
+    let days = agora.getDate() - dataInicio.getDate();
 
-    if(dias < 0){
-      const diasMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
-      dias += diasMesAnterior;
-      meses--;
+    if (days < 0) {
+      months--;
+      // Get days in previous month
+      const prevMonth = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+      days += prevMonth;
+    }
+    if (months < 0) {
+      months += 12;
+      years--;
     }
 
-    if(meses < 0){ meses += 12; anos--; }
-
-    const totalMeses = anos * 12 + meses;
-
-    document.getElementById('meses').textContent = totalMeses;
-    document.getElementById('dias').textContent = dias;
-    document.getElementById('horas').textContent = horas.toString().padStart(2,'0');
-    document.getElementById('minutos').textContent = minutos.toString().padStart(2,'0');
-    document.getElementById('segundos').textContent = segundos.toString().padStart(2,'0');
+    // Update DOM
+    document.getElementById('meses').textContent = months;
+    document.getElementById('dias').textContent = days;
+    document.getElementById('horas').textContent = hours.toString().padStart(2,'0');
+    document.getElementById('minutos').textContent = minutes.toString().padStart(2,'0');
+    document.getElementById('segundos').textContent = seconds.toString().padStart(2,'0');
   }
 
-  atualizar();
-  setInterval(atualizar, 1000);
-
-   const senhaCorreta = "32007";
+  // --- LOGIN LOGIC ---
+  const senhaCorreta = "32007";
 
   function verificar(){
     const senha = document.getElementById("senha").value;
     if(senha === senhaCorreta){
-      document.getElementById("login").style.display = "none";
-      document.getElementById("conteudo").style.display = "block";
+      // Hide login, show content
+      document.getElementById("login").classList.add("hidden");
+      const conteudo = document.getElementById("conteudo");
+      conteudo.classList.remove("hidden");
+      conteudo.classList.add("fade-in");
+      
+      // Start timer immediately
+      atualizar();
+      setInterval(atualizar, 1000);
     } else {
-      alert("Senha errada 😢");
+      // Shake animation for error
+      const input = document.getElementById("senha");
+      input.style.borderColor = "red";
+      input.style.background = "#ffe6e6";
+      setTimeout(() => {
+        input.style.borderColor = "rgba(255,255,255,0.5)";
+        input.style.background = "rgba(255,255,255,0.6)";
+      }, 1000);
+      alert("Ops! A senha está errada 😢");
     }
   }
 </script>
