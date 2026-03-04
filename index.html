@@ -52,6 +52,16 @@
   </style>
 </head>
 <body>
+
+  <div id="login">
+  <h2>Digite a senha ❤️</h2>
+  <input type="password" id="senha" placeholder="Senha">
+  <button onclick="verificar()">Entrar</button>
+</div>
+
+<div id="conteudo" style="display:none;">
+  <!-- COLOCA TODO SEU SITE AQUI DENTRO -->
+  
   <h1>Pedro ❤️ Livia</h1>
   <h2>Tempo juntos desde: <span id="data">25/05/2023</span></h2>
 
@@ -101,6 +111,18 @@
 
   atualizar();
   setInterval(atualizar, 1000);
+
+   const senhaCorreta = "minhasenha123";
+
+  function verificar(){
+    const senha = document.getElementById("senha").value;
+    if(senha === senhaCorreta){
+      document.getElementById("login").style.display = "none";
+      document.getElementById("conteudo").style.display = "block";
+    } else {
+      alert("Senha errada 😢");
+    }
+  }
 </script>
 
 </body>
